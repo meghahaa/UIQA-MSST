@@ -77,9 +77,7 @@ class FeatureNet(nn.Module):
         super(FeatureNet, self).__init__()
     
       
-        pretrained_cfg_overlay = {'file': r"/home/user/UIQASFT-main/pytorch_model_Effv2m21k.bin"}
-        self.RGBNet = timm.create_model('tf_efficientnetv2_m.in21k', pretrained_cfg_overlay=pretrained_cfg_overlay,
-                                        features_only=True, pretrained=True)
+        self.RGBNet = timm.create_model('tf_efficientnetv2_m.in21k',features_only=True, pretrained=True)
 
 
         model = SwinTransformer(img_size=384,patch_size=4, window_size=12, embed_dim=48, depths=(2, 2, 6, 2), num_heads=[3,6,12,24],num_classes=1)
